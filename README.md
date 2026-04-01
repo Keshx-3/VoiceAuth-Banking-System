@@ -1,59 +1,82 @@
-# 🏦 Fully Featured Banking Application
+# 🏦 Next-Gen Banking App: AI-Powered Voice Authentication
 
-A complete end-to-end banking application featuring a powerful **FastAPI Backend** and a beautiful **Flutter Frontend**. Built for demonstrating a real-world enterprise architecture, including advanced functionalities like machine learning-based Voice Authentication and robust API services.
+A full-stack, state-of-the-art banking ecosystem featuring a **Flutter (GPay Clone)** frontend and a high-performance **FastAPI** backend. This project was engineered to directly address the 2026 RBI mandate requiring strict 2FA via real-time biometric Voice Authentication (replacing legacy OTP systems).
+
+![Voice Auth POC](https://img.shields.io/badge/Voice%20Authentication-ECAPA--TDNN-blue?style=for-the-badge)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi)
+![Flutter](https://img.shields.io/badge/Flutter-Frontend-02569B?style=for-the-badge&logo=flutter)
+![Deployed](https://img.shields.io/badge/Deployed-AWS-FF9900?style=for-the-badge&logo=amazon-aws)
 
 ---
 
-## 🏗️ Repository Architecture
+## 🚨 The Catalyst: Transitioning Away from "OTP-Only"
+> *As of April 1, 2026, the RBI mandated 2FA for all digital payments due to escalating phishing and SIM-swap scams. Following global precedents (like UAE's Face-Auth), this Proof of Concept demonstrates how zero-friction conversational biometrics can serve as the ultimate transaction layer.*
 
-This repository is organized as a monorepo containing both the frontend and backend applications in their respective directories. 
+This ecosystem allows users to securely verify transactions natively via Voice Print extraction—making the experience highly resistant to fraud.
+
+---
+
+## 🏗️ Monorepo Architecture
+
+This project is organized into two primary segments natively contained in this repository:
 
 ```text
 banking-app/
 │
 ├── frontend/        → Flutter Framework (GPay Clone UI)
-├── backend/         → FastAPI (Core Banking & ML Authentication)
-├── README.md        → You are here!
-└── .gitignore       → Root git ignores (augmented by folder-level ignores)
+└── backend/         → FastAPI (Core Banking & ML Voice Engine)
 ```
 
 ---
 
-## 📱 Frontend (Flutter)
+## 📱 1. Frontend (Flutter)
 
-The frontend is a sleek, responsive mobile application modeled after Google Pay (GPay). It features state-of-the-art UI/UX, built natively for multiple platforms (Mobile, Web, Desktop) using Dart.
-
-### Highlights:
-- **Responsive UI:** Fully fluid and modern design.
-- **Micro-Animations:** Smooth transitions and feedback on user actions.
-- **API Integration:** Connects perfectly with the FastAPI Restful APIs.
-- **Device Support:** Ready for Android, iOS, Windows, and browsers.
-
-> 👉 **[Explore the Frontend Directory Setup Here](./frontend/README.md)**
-
----
-
-## ⚙️ Backend (FastAPI / Server)
-
-A scalable, secure, and blazing-fast REST API handling the core logic of the banking application, including user verification, transaction ledgers, and advanced artificial intelligence verification loops.
+A sleek, responsive mobile application modeled after Google Pay (GPay). Created exclusively for a seamless UX ensuring frictionless biometric enrollments and payments.
 
 ### Highlights:
-- **Security:** Bcrypt password hashing and JWT authentication flows.
-- **Voice Authentication:** Utilizes advanced SpeechBrain ECAPA-TDNN technology for generating unique biometric voice vectors. 
-- **Atomic Transactions:** ACID-compliant SQLite ledger databases via SQLAlchemy migrations.
-- **Live AWS Cloud:** Fully hosted and pre-configured to be consumed by the frontend.
+- **Responsive UI:** Fully fluid and modern design tailored for Android, iOS, and Web.
+- **Micro-Animations State Management:** Custom Lottie animations during verification flows and data loading states.
+- **Voice Engine Hookup:** Real-time capture of `.wav` micro-audio samples interacting directly with backend inference APIs.
+- **Architecture:** Clean `lib/api_service/` network routing, coupled with dynamic exception handling for suspended accounts.
 
-> 👉 **[Explore the Backend API Setup Here](./backend/README.md)**
-
----
-
-## 🚀 Getting Started
-
-If you want to run this application locally, you'll need both Flutter and Python depending on what you want to test.
-
-1. **Backend:** The backend is already deployed to AWS (`https://13.202.14.245.nip.io`). If you wish to run it locally, follow the backend README to create a virtual environment (`.venv`).
-2. **Frontend:** Navigate to the `frontend` folder, run `flutter pub get` and execute `flutter run` on your preferred device.
+### Frontend Setup:
+```bash
+cd frontend
+flutter pub get
+flutter run
+```
 
 ---
 
-*Authored and developed with ❤️.*
+## ⚙️ 2. Backend (FastAPI / Server)
+
+A scalable REST API designed entirely using Domain-Driven Design (DDD). It manages the atomic transaction ledger and functions as the biometric inference brain.
+
+### Highlights:
+- **🧠 AI Voice Engine:** Utilizes **SpeechBrain ECAPA-TDNN** to extract 192-dimensional voice embeddings for precise cosine similarity verification.
+- **🔐 Secure Authentication:** Bcrypt password hashing and OAuth2 JWT flows.
+- **💸 Atomic Transactions:** Safe money movement utilizing ACID-compliant SQLAlchemy migrations preventing race conditions.
+- **📜 Live Ledger:** Full paginated history with bidirectional, chat-style transaction views.
+- **Live AWS Cloud:** Fully hosted and pre-configured for instant frontend pairing.
+
+### Backend Setup:
+The backend logic operates locally on port 8000 via SQLite if detached from AWS. 
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate  # (or .venv\Scripts\activate on Windows)
+pip install -r requirements.txt
+alembic upgrade head
+uvicorn app.main:app --reload
+```
+
+---
+
+## 🌐 Tech Stack Details
+- **Frontend Layer:** Flutter (Dart), Lottie, Google Fonts.
+- **Backend Framework:** FastAPI, Uvicorn, Python 3.13.
+- **Database Model:** SQLite / PostgreSQL, SQLAlchemy ORM, Alembic Migrations.
+- **Machine Learning Layer:** PyTorch, SpeechBrain.
+
+---
+*Developed with a focus on FinTech Security and Scalable Enterprise Delivery.*
