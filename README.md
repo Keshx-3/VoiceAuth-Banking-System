@@ -59,6 +59,10 @@ A scalable REST API designed entirely using Domain-Driven Design (DDD). It manag
 - **📜 Live Ledger:** Full paginated history with bidirectional, chat-style transaction views.
 - **Live AWS Cloud:** Fully hosted and pre-configured for instant frontend pairing.
 
+### Architecture
+<img width="2048" height="315" alt="image" src="https://github.com/user-attachments/assets/2d8eb88b-ce45-48dc-b052-c4549fa58ab4" />
+
+
 ### Backend Setup:
 The backend logic operates locally on port 8000 via SQLite if detached from AWS. 
 ```bash
