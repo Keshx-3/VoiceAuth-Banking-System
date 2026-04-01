@@ -1,0 +1,4 @@
+Make Migrations:  alembic revision --autogenerate -m "Initial migration with random IDs"
+Migrate: alembic upgrade head
+
+Run Server:  uvicorn app.main:app --reload

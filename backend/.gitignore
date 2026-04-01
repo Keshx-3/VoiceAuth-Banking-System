@@ -1,0 +1,43 @@
+# --- Python General ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environment ---
+# We use .venv, but listing others is good practice
+.venv/
+venv/
+env/
+
+# --- Environment Variables (CRITICAL) ---
+# Never commit secrets to git
+.env
+# .env.local
+# .env.*
+
+# --- Database ---
+# Ignore local SQLite databases
+*.db
+*.sqlite3
+*.sqlite
+
+# --- Logs ---
+# Ignore the logs folder we created for Loguru
+logs/
+*.log
+
+# --- IDE/Editor Settings ---
+.vscode/
+.idea/
+
+# --- Testing & Coverage (For later) ---
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- OS Specific ---
+.DS_Store
+
+/static/images/*
+/media/profile_pic/*
+!.gitkeep

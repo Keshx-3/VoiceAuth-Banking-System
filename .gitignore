@@ -1,0 +1,9 @@
+# Root level ignores
+.idea/
+.vscode/
+*.suo
+*.sln
+
+# OS metadata
+.DS_Store
+Thumbs.db
